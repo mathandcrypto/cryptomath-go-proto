@@ -24,8 +24,6 @@ message CreateAccessSessionRequest {
 }
 
 message CreateAccessSessionResponse {
-  bool is_access_session_created = 1;
-  bool is_refresh_session_created = 2;
   string access_secret = 4;
   string refresh_secret = 6;
 }

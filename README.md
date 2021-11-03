@@ -4,5 +4,5 @@ A set of proto files for exchanging messages between CryptoMath API microservice
 
 ## Generating code
 ```shell
-go generate
+make generate
 ```
