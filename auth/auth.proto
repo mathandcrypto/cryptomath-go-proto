@@ -6,11 +6,6 @@ option go_package = "github.com/mathandcrypto/cryptomath-go-proto/auth;auth";
 
 import "google/protobuf/timestamp.proto";
 
-message AccessSession {
-  google.protobuf.Timestamp created_at = 2;
-  google.protobuf.Timestamp updated_at = 3;
-}
-
 message RefreshSession {
   string ip = 2;
   string user_agent = 3;
@@ -35,8 +30,6 @@ message ValidateAccessSessionRequest {
 
 message ValidateAccessSessionResponse {
   bool is_session_exists = 1;
-  bool is_session_expired = 2;
-  AccessSession access_session = 3;
 }
 
 message DeleteAccessSessionRequest {
@@ -45,7 +38,6 @@ message DeleteAccessSessionRequest {
 
 message DeleteAccessSessionResponse {
   bool is_session_deleted = 1;
-  AccessSession access_session = 2;
 }
 
 message ValidateRefreshSessionRequest {

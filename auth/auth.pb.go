@@ -21,61 +21,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type AccessSession struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-}
-
-func (x *AccessSession) Reset() {
-	*x = AccessSession{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_proto_msgTypes[0]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *AccessSession) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AccessSession) ProtoMessage() {}
-
-func (x *AccessSession) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_proto_msgTypes[0]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AccessSession.ProtoReflect.Descriptor instead.
-func (*AccessSession) Descriptor() ([]byte, []int) {
-	return file_auth_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *AccessSession) GetCreatedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.CreatedAt
-	}
-	return nil
-}
-
-func (x *AccessSession) GetUpdatedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.UpdatedAt
-	}
-	return nil
-}
-
 type RefreshSession struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -89,7 +34,7 @@ type RefreshSession struct {
 func (x *RefreshSession) Reset() {
 	*x = RefreshSession{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_proto_msgTypes[1]
+		mi := &file_auth_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -102,7 +47,7 @@ func (x *RefreshSession) String() string {
 func (*RefreshSession) ProtoMessage() {}
 
 func (x *RefreshSession) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_proto_msgTypes[1]
+	mi := &file_auth_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -115,7 +60,7 @@ func (x *RefreshSession) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RefreshSession.ProtoReflect.Descriptor instead.
 func (*RefreshSession) Descriptor() ([]byte, []int) {
-	return file_auth_proto_rawDescGZIP(), []int{1}
+	return file_auth_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *RefreshSession) GetIp() string {
@@ -152,7 +97,7 @@ type CreateAccessSessionRequest struct {
 func (x *CreateAccessSessionRequest) Reset() {
 	*x = CreateAccessSessionRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_proto_msgTypes[2]
+		mi := &file_auth_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -165,7 +110,7 @@ func (x *CreateAccessSessionRequest) String() string {
 func (*CreateAccessSessionRequest) ProtoMessage() {}
 
 func (x *CreateAccessSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_proto_msgTypes[2]
+	mi := &file_auth_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -178,7 +123,7 @@ func (x *CreateAccessSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateAccessSessionRequest.ProtoReflect.Descriptor instead.
 func (*CreateAccessSessionRequest) Descriptor() ([]byte, []int) {
-	return file_auth_proto_rawDescGZIP(), []int{2}
+	return file_auth_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *CreateAccessSessionRequest) GetUserId() int32 {
@@ -214,7 +159,7 @@ type CreateAccessSessionResponse struct {
 func (x *CreateAccessSessionResponse) Reset() {
 	*x = CreateAccessSessionResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_proto_msgTypes[3]
+		mi := &file_auth_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -227,7 +172,7 @@ func (x *CreateAccessSessionResponse) String() string {
 func (*CreateAccessSessionResponse) ProtoMessage() {}
 
 func (x *CreateAccessSessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_proto_msgTypes[3]
+	mi := &file_auth_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -240,7 +185,7 @@ func (x *CreateAccessSessionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateAccessSessionResponse.ProtoReflect.Descriptor instead.
 func (*CreateAccessSessionResponse) Descriptor() ([]byte, []int) {
-	return file_auth_proto_rawDescGZIP(), []int{3}
+	return file_auth_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CreateAccessSessionResponse) GetAccessSecret() string {
@@ -269,7 +214,7 @@ type ValidateAccessSessionRequest struct {
 func (x *ValidateAccessSessionRequest) Reset() {
 	*x = ValidateAccessSessionRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_proto_msgTypes[4]
+		mi := &file_auth_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -282,7 +227,7 @@ func (x *ValidateAccessSessionRequest) String() string {
 func (*ValidateAccessSessionRequest) ProtoMessage() {}
 
 func (x *ValidateAccessSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_proto_msgTypes[4]
+	mi := &file_auth_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -295,7 +240,7 @@ func (x *ValidateAccessSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ValidateAccessSessionRequest.ProtoReflect.Descriptor instead.
 func (*ValidateAccessSessionRequest) Descriptor() ([]byte, []int) {
-	return file_auth_proto_rawDescGZIP(), []int{4}
+	return file_auth_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *ValidateAccessSessionRequest) GetUserId() int32 {
@@ -317,15 +262,13 @@ type ValidateAccessSessionResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	IsSessionExists  bool           `protobuf:"varint,1,opt,name=is_session_exists,json=isSessionExists,proto3" json:"is_session_exists,omitempty"`
-	IsSessionExpired bool           `protobuf:"varint,2,opt,name=is_session_expired,json=isSessionExpired,proto3" json:"is_session_expired,omitempty"`
-	AccessSession    *AccessSession `protobuf:"bytes,3,opt,name=access_session,json=accessSession,proto3" json:"access_session,omitempty"`
+	IsSessionExists bool `protobuf:"varint,1,opt,name=is_session_exists,json=isSessionExists,proto3" json:"is_session_exists,omitempty"`
 }
 
 func (x *ValidateAccessSessionResponse) Reset() {
 	*x = ValidateAccessSessionResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_proto_msgTypes[5]
+		mi := &file_auth_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -338,7 +281,7 @@ func (x *ValidateAccessSessionResponse) String() string {
 func (*ValidateAccessSessionResponse) ProtoMessage() {}
 
 func (x *ValidateAccessSessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_proto_msgTypes[5]
+	mi := &file_auth_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -351,7 +294,7 @@ func (x *ValidateAccessSessionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ValidateAccessSessionResponse.ProtoReflect.Descriptor instead.
 func (*ValidateAccessSessionResponse) Descriptor() ([]byte, []int) {
-	return file_auth_proto_rawDescGZIP(), []int{5}
+	return file_auth_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *ValidateAccessSessionResponse) GetIsSessionExists() bool {
@@ -359,20 +302,6 @@ func (x *ValidateAccessSessionResponse) GetIsSessionExists() bool {
 		return x.IsSessionExists
 	}
 	return false
-}
-
-func (x *ValidateAccessSessionResponse) GetIsSessionExpired() bool {
-	if x != nil {
-		return x.IsSessionExpired
-	}
-	return false
-}
-
-func (x *ValidateAccessSessionResponse) GetAccessSession() *AccessSession {
-	if x != nil {
-		return x.AccessSession
-	}
-	return nil
 }
 
 type DeleteAccessSessionRequest struct {
@@ -386,7 +315,7 @@ type DeleteAccessSessionRequest struct {
 func (x *DeleteAccessSessionRequest) Reset() {
 	*x = DeleteAccessSessionRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_proto_msgTypes[6]
+		mi := &file_auth_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -399,7 +328,7 @@ func (x *DeleteAccessSessionRequest) String() string {
 func (*DeleteAccessSessionRequest) ProtoMessage() {}
 
 func (x *DeleteAccessSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_proto_msgTypes[6]
+	mi := &file_auth_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -412,7 +341,7 @@ func (x *DeleteAccessSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteAccessSessionRequest.ProtoReflect.Descriptor instead.
 func (*DeleteAccessSessionRequest) Descriptor() ([]byte, []int) {
-	return file_auth_proto_rawDescGZIP(), []int{6}
+	return file_auth_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *DeleteAccessSessionRequest) GetUserId() int32 {
@@ -427,14 +356,13 @@ type DeleteAccessSessionResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	IsSessionDeleted bool           `protobuf:"varint,1,opt,name=is_session_deleted,json=isSessionDeleted,proto3" json:"is_session_deleted,omitempty"`
-	AccessSession    *AccessSession `protobuf:"bytes,2,opt,name=access_session,json=accessSession,proto3" json:"access_session,omitempty"`
+	IsSessionDeleted bool `protobuf:"varint,1,opt,name=is_session_deleted,json=isSessionDeleted,proto3" json:"is_session_deleted,omitempty"`
 }
 
 func (x *DeleteAccessSessionResponse) Reset() {
 	*x = DeleteAccessSessionResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_proto_msgTypes[7]
+		mi := &file_auth_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -447,7 +375,7 @@ func (x *DeleteAccessSessionResponse) String() string {
 func (*DeleteAccessSessionResponse) ProtoMessage() {}
 
 func (x *DeleteAccessSessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_proto_msgTypes[7]
+	mi := &file_auth_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -460,7 +388,7 @@ func (x *DeleteAccessSessionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteAccessSessionResponse.ProtoReflect.Descriptor instead.
 func (*DeleteAccessSessionResponse) Descriptor() ([]byte, []int) {
-	return file_auth_proto_rawDescGZIP(), []int{7}
+	return file_auth_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *DeleteAccessSessionResponse) GetIsSessionDeleted() bool {
@@ -468,13 +396,6 @@ func (x *DeleteAccessSessionResponse) GetIsSessionDeleted() bool {
 		return x.IsSessionDeleted
 	}
 	return false
-}
-
-func (x *DeleteAccessSessionResponse) GetAccessSession() *AccessSession {
-	if x != nil {
-		return x.AccessSession
-	}
-	return nil
 }
 
 type ValidateRefreshSessionRequest struct {
@@ -489,7 +410,7 @@ type ValidateRefreshSessionRequest struct {
 func (x *ValidateRefreshSessionRequest) Reset() {
 	*x = ValidateRefreshSessionRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_proto_msgTypes[8]
+		mi := &file_auth_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -502,7 +423,7 @@ func (x *ValidateRefreshSessionRequest) String() string {
 func (*ValidateRefreshSessionRequest) ProtoMessage() {}
 
 func (x *ValidateRefreshSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_proto_msgTypes[8]
+	mi := &file_auth_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -515,7 +436,7 @@ func (x *ValidateRefreshSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ValidateRefreshSessionRequest.ProtoReflect.Descriptor instead.
 func (*ValidateRefreshSessionRequest) Descriptor() ([]byte, []int) {
-	return file_auth_proto_rawDescGZIP(), []int{8}
+	return file_auth_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *ValidateRefreshSessionRequest) GetUserId() int32 {
@@ -545,7 +466,7 @@ type ValidateRefreshSessionResponse struct {
 func (x *ValidateRefreshSessionResponse) Reset() {
 	*x = ValidateRefreshSessionResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_proto_msgTypes[9]
+		mi := &file_auth_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -558,7 +479,7 @@ func (x *ValidateRefreshSessionResponse) String() string {
 func (*ValidateRefreshSessionResponse) ProtoMessage() {}
 
 func (x *ValidateRefreshSessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_proto_msgTypes[9]
+	mi := &file_auth_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -571,7 +492,7 @@ func (x *ValidateRefreshSessionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ValidateRefreshSessionResponse.ProtoReflect.Descriptor instead.
 func (*ValidateRefreshSessionResponse) Descriptor() ([]byte, []int) {
-	return file_auth_proto_rawDescGZIP(), []int{9}
+	return file_auth_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *ValidateRefreshSessionResponse) GetIsSessionExists() bool {
@@ -607,7 +528,7 @@ type DeleteRefreshSessionRequest struct {
 func (x *DeleteRefreshSessionRequest) Reset() {
 	*x = DeleteRefreshSessionRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_proto_msgTypes[10]
+		mi := &file_auth_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -620,7 +541,7 @@ func (x *DeleteRefreshSessionRequest) String() string {
 func (*DeleteRefreshSessionRequest) ProtoMessage() {}
 
 func (x *DeleteRefreshSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_proto_msgTypes[10]
+	mi := &file_auth_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -633,7 +554,7 @@ func (x *DeleteRefreshSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteRefreshSessionRequest.ProtoReflect.Descriptor instead.
 func (*DeleteRefreshSessionRequest) Descriptor() ([]byte, []int) {
-	return file_auth_proto_rawDescGZIP(), []int{10}
+	return file_auth_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *DeleteRefreshSessionRequest) GetUserId() int32 {
@@ -662,7 +583,7 @@ type DeleteRefreshSessionResponse struct {
 func (x *DeleteRefreshSessionResponse) Reset() {
 	*x = DeleteRefreshSessionResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_proto_msgTypes[11]
+		mi := &file_auth_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -675,7 +596,7 @@ func (x *DeleteRefreshSessionResponse) String() string {
 func (*DeleteRefreshSessionResponse) ProtoMessage() {}
 
 func (x *DeleteRefreshSessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_proto_msgTypes[11]
+	mi := &file_auth_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -688,7 +609,7 @@ func (x *DeleteRefreshSessionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteRefreshSessionResponse.ProtoReflect.Descriptor instead.
 func (*DeleteRefreshSessionResponse) Descriptor() ([]byte, []int) {
-	return file_auth_proto_rawDescGZIP(), []int{11}
+	return file_auth_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *DeleteRefreshSessionResponse) GetIsSessionDeleted() bool {
@@ -716,7 +637,7 @@ type DeleteAllUserSessionsRequest struct {
 func (x *DeleteAllUserSessionsRequest) Reset() {
 	*x = DeleteAllUserSessionsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_proto_msgTypes[12]
+		mi := &file_auth_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -729,7 +650,7 @@ func (x *DeleteAllUserSessionsRequest) String() string {
 func (*DeleteAllUserSessionsRequest) ProtoMessage() {}
 
 func (x *DeleteAllUserSessionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_proto_msgTypes[12]
+	mi := &file_auth_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -742,7 +663,7 @@ func (x *DeleteAllUserSessionsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteAllUserSessionsRequest.ProtoReflect.Descriptor instead.
 func (*DeleteAllUserSessionsRequest) Descriptor() ([]byte, []int) {
-	return file_auth_proto_rawDescGZIP(), []int{12}
+	return file_auth_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *DeleteAllUserSessionsRequest) GetUserId() int32 {
@@ -763,7 +684,7 @@ type DeleteAllUserSessionsResponse struct {
 func (x *DeleteAllUserSessionsResponse) Reset() {
 	*x = DeleteAllUserSessionsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_auth_proto_msgTypes[13]
+		mi := &file_auth_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -776,7 +697,7 @@ func (x *DeleteAllUserSessionsResponse) String() string {
 func (*DeleteAllUserSessionsResponse) ProtoMessage() {}
 
 func (x *DeleteAllUserSessionsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_proto_msgTypes[13]
+	mi := &file_auth_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -789,7 +710,7 @@ func (x *DeleteAllUserSessionsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteAllUserSessionsResponse.ProtoReflect.Descriptor instead.
 func (*DeleteAllUserSessionsResponse) Descriptor() ([]byte, []int) {
-	return file_auth_proto_rawDescGZIP(), []int{13}
+	return file_auth_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *DeleteAllUserSessionsResponse) GetIsSessionsDeleted() bool {
@@ -805,65 +726,46 @@ var file_auth_proto_rawDesc = []byte{
 	0x0a, 0x0a, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x04, 0x61, 0x75,
 	0x74, 0x68, 0x1a, 0x1f, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f,
 	0x62, 0x75, 0x66, 0x2f, 0x74, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x2e, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x22, 0x85, 0x01, 0x0a, 0x0d, 0x41, 0x63, 0x63, 0x65, 0x73, 0x73, 0x53, 0x65,
-	0x73, 0x73, 0x69, 0x6f, 0x6e, 0x12, 0x39, 0x0a, 0x0a, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x64,
-	0x5f, 0x61, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67,
-	0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65,
-	0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x09, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74,
-	0x12, 0x39, 0x0a, 0x0a, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x64, 0x5f, 0x61, 0x74, 0x18, 0x03,
-	0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70,
-	0x52, 0x09, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x22, 0x7a, 0x0a, 0x0e, 0x52,
-	0x65, 0x66, 0x72, 0x65, 0x73, 0x68, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x12, 0x0e, 0x0a,
-	0x02, 0x69, 0x70, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x70, 0x12, 0x1d, 0x0a,
-	0x0a, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x61, 0x67, 0x65, 0x6e, 0x74, 0x18, 0x03, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x09, 0x75, 0x73, 0x65, 0x72, 0x41, 0x67, 0x65, 0x6e, 0x74, 0x12, 0x39, 0x0a, 0x0a,
-	0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x5f, 0x61, 0x74, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0b,
-	0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62,
-	0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x09, 0x63, 0x72,
-	0x65, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x22, 0x64, 0x0a, 0x1a, 0x43, 0x72, 0x65, 0x61, 0x74,
-	0x65, 0x41, 0x63, 0x63, 0x65, 0x73, 0x73, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x0e,
-	0x0a, 0x02, 0x69, 0x70, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x70, 0x12, 0x1d,
-	0x0a, 0x0a, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x61, 0x67, 0x65, 0x6e, 0x74, 0x18, 0x03, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x09, 0x75, 0x73, 0x65, 0x72, 0x41, 0x67, 0x65, 0x6e, 0x74, 0x22, 0x69, 0x0a,
-	0x1b, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x41, 0x63, 0x63, 0x65, 0x73, 0x73, 0x53, 0x65, 0x73,
-	0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x23, 0x0a, 0x0d,
-	0x61, 0x63, 0x63, 0x65, 0x73, 0x73, 0x5f, 0x73, 0x65, 0x63, 0x72, 0x65, 0x74, 0x18, 0x04, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x0c, 0x61, 0x63, 0x63, 0x65, 0x73, 0x73, 0x53, 0x65, 0x63, 0x72, 0x65,
-	0x74, 0x12, 0x25, 0x0a, 0x0e, 0x72, 0x65, 0x66, 0x72, 0x65, 0x73, 0x68, 0x5f, 0x73, 0x65, 0x63,
-	0x72, 0x65, 0x74, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0d, 0x72, 0x65, 0x66, 0x72, 0x65,
-	0x73, 0x68, 0x53, 0x65, 0x63, 0x72, 0x65, 0x74, 0x22, 0x5c, 0x0a, 0x1c, 0x56, 0x61, 0x6c, 0x69,
-	0x64, 0x61, 0x74, 0x65, 0x41, 0x63, 0x63, 0x65, 0x73, 0x73, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f,
-	0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72,
-	0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49,
-	0x64, 0x12, 0x23, 0x0a, 0x0d, 0x61, 0x63, 0x63, 0x65, 0x73, 0x73, 0x5f, 0x73, 0x65, 0x63, 0x72,
-	0x65, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x61, 0x63, 0x63, 0x65, 0x73, 0x73,
-	0x53, 0x65, 0x63, 0x72, 0x65, 0x74, 0x22, 0xb5, 0x01, 0x0a, 0x1d, 0x56, 0x61, 0x6c, 0x69, 0x64,
-	0x61, 0x74, 0x65, 0x41, 0x63, 0x63, 0x65, 0x73, 0x73, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2a, 0x0a, 0x11, 0x69, 0x73, 0x5f, 0x73,
-	0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x5f, 0x65, 0x78, 0x69, 0x73, 0x74, 0x73, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x08, 0x52, 0x0f, 0x69, 0x73, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x45, 0x78,
-	0x69, 0x73, 0x74, 0x73, 0x12, 0x2c, 0x0a, 0x12, 0x69, 0x73, 0x5f, 0x73, 0x65, 0x73, 0x73, 0x69,
-	0x6f, 0x6e, 0x5f, 0x65, 0x78, 0x70, 0x69, 0x72, 0x65, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x08,
-	0x52, 0x10, 0x69, 0x73, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x45, 0x78, 0x70, 0x69, 0x72,
-	0x65, 0x64, 0x12, 0x3a, 0x0a, 0x0e, 0x61, 0x63, 0x63, 0x65, 0x73, 0x73, 0x5f, 0x73, 0x65, 0x73,
-	0x73, 0x69, 0x6f, 0x6e, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x13, 0x2e, 0x61, 0x75, 0x74,
-	0x68, 0x2e, 0x41, 0x63, 0x63, 0x65, 0x73, 0x73, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x52,
-	0x0d, 0x61, 0x63, 0x63, 0x65, 0x73, 0x73, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x22, 0x35,
-	0x0a, 0x1a, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x41, 0x63, 0x63, 0x65, 0x73, 0x73, 0x53, 0x65,
-	0x73, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x0a, 0x07,
-	0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x75,
-	0x73, 0x65, 0x72, 0x49, 0x64, 0x22, 0x87, 0x01, 0x0a, 0x1b, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65,
-	0x41, 0x63, 0x63, 0x65, 0x73, 0x73, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2c, 0x0a, 0x12, 0x69, 0x73, 0x5f, 0x73, 0x65, 0x73, 0x73,
-	0x69, 0x6f, 0x6e, 0x5f, 0x64, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x08, 0x52, 0x10, 0x69, 0x73, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x44, 0x65, 0x6c, 0x65,
-	0x74, 0x65, 0x64, 0x12, 0x3a, 0x0a, 0x0e, 0x61, 0x63, 0x63, 0x65, 0x73, 0x73, 0x5f, 0x73, 0x65,
-	0x73, 0x73, 0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x13, 0x2e, 0x61, 0x75,
-	0x74, 0x68, 0x2e, 0x41, 0x63, 0x63, 0x65, 0x73, 0x73, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e,
-	0x52, 0x0d, 0x61, 0x63, 0x63, 0x65, 0x73, 0x73, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x22,
+	0x6f, 0x74, 0x6f, 0x22, 0x7a, 0x0a, 0x0e, 0x52, 0x65, 0x66, 0x72, 0x65, 0x73, 0x68, 0x53, 0x65,
+	0x73, 0x73, 0x69, 0x6f, 0x6e, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x70, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x02, 0x69, 0x70, 0x12, 0x1d, 0x0a, 0x0a, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x61, 0x67,
+	0x65, 0x6e, 0x74, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x75, 0x73, 0x65, 0x72, 0x41,
+	0x67, 0x65, 0x6e, 0x74, 0x12, 0x39, 0x0a, 0x0a, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x5f,
+	0x61, 0x74, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c,
+	0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73,
+	0x74, 0x61, 0x6d, 0x70, 0x52, 0x09, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x22,
+	0x64, 0x0a, 0x1a, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x41, 0x63, 0x63, 0x65, 0x73, 0x73, 0x53,
+	0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x0a,
+	0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06,
+	0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x70, 0x18, 0x02, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x02, 0x69, 0x70, 0x12, 0x1d, 0x0a, 0x0a, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x61,
+	0x67, 0x65, 0x6e, 0x74, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x75, 0x73, 0x65, 0x72,
+	0x41, 0x67, 0x65, 0x6e, 0x74, 0x22, 0x69, 0x0a, 0x1b, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x41,
+	0x63, 0x63, 0x65, 0x73, 0x73, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x23, 0x0a, 0x0d, 0x61, 0x63, 0x63, 0x65, 0x73, 0x73, 0x5f, 0x73,
+	0x65, 0x63, 0x72, 0x65, 0x74, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x61, 0x63, 0x63,
+	0x65, 0x73, 0x73, 0x53, 0x65, 0x63, 0x72, 0x65, 0x74, 0x12, 0x25, 0x0a, 0x0e, 0x72, 0x65, 0x66,
+	0x72, 0x65, 0x73, 0x68, 0x5f, 0x73, 0x65, 0x63, 0x72, 0x65, 0x74, 0x18, 0x06, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x0d, 0x72, 0x65, 0x66, 0x72, 0x65, 0x73, 0x68, 0x53, 0x65, 0x63, 0x72, 0x65, 0x74,
+	0x22, 0x5c, 0x0a, 0x1c, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x41, 0x63, 0x63, 0x65,
+	0x73, 0x73, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x05, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x23, 0x0a, 0x0d, 0x61, 0x63, 0x63,
+	0x65, 0x73, 0x73, 0x5f, 0x73, 0x65, 0x63, 0x72, 0x65, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x0c, 0x61, 0x63, 0x63, 0x65, 0x73, 0x73, 0x53, 0x65, 0x63, 0x72, 0x65, 0x74, 0x22, 0x4b,
+	0x0a, 0x1d, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x41, 0x63, 0x63, 0x65, 0x73, 0x73,
+	0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x2a, 0x0a, 0x11, 0x69, 0x73, 0x5f, 0x73, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x5f, 0x65, 0x78,
+	0x69, 0x73, 0x74, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x0f, 0x69, 0x73, 0x53, 0x65,
+	0x73, 0x73, 0x69, 0x6f, 0x6e, 0x45, 0x78, 0x69, 0x73, 0x74, 0x73, 0x22, 0x35, 0x0a, 0x1a, 0x44,
+	0x65, 0x6c, 0x65, 0x74, 0x65, 0x41, 0x63, 0x63, 0x65, 0x73, 0x73, 0x53, 0x65, 0x73, 0x73, 0x69,
+	0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65,
+	0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72,
+	0x49, 0x64, 0x22, 0x4b, 0x0a, 0x1b, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x41, 0x63, 0x63, 0x65,
+	0x73, 0x73, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x2c, 0x0a, 0x12, 0x69, 0x73, 0x5f, 0x73, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x5f,
+	0x64, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x10, 0x69,
+	0x73, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x64, 0x22,
 	0x5f, 0x0a, 0x1d, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x52, 0x65, 0x66, 0x72, 0x65,
 	0x73, 0x68, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
 	0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
@@ -961,49 +863,44 @@ func file_auth_proto_rawDescGZIP() []byte {
 	return file_auth_proto_rawDescData
 }
 
-var file_auth_proto_msgTypes = make([]protoimpl.MessageInfo, 14)
+var file_auth_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
 var file_auth_proto_goTypes = []interface{}{
-	(*AccessSession)(nil),                  // 0: auth.AccessSession
-	(*RefreshSession)(nil),                 // 1: auth.RefreshSession
-	(*CreateAccessSessionRequest)(nil),     // 2: auth.CreateAccessSessionRequest
-	(*CreateAccessSessionResponse)(nil),    // 3: auth.CreateAccessSessionResponse
-	(*ValidateAccessSessionRequest)(nil),   // 4: auth.ValidateAccessSessionRequest
-	(*ValidateAccessSessionResponse)(nil),  // 5: auth.ValidateAccessSessionResponse
-	(*DeleteAccessSessionRequest)(nil),     // 6: auth.DeleteAccessSessionRequest
-	(*DeleteAccessSessionResponse)(nil),    // 7: auth.DeleteAccessSessionResponse
-	(*ValidateRefreshSessionRequest)(nil),  // 8: auth.ValidateRefreshSessionRequest
-	(*ValidateRefreshSessionResponse)(nil), // 9: auth.ValidateRefreshSessionResponse
-	(*DeleteRefreshSessionRequest)(nil),    // 10: auth.DeleteRefreshSessionRequest
-	(*DeleteRefreshSessionResponse)(nil),   // 11: auth.DeleteRefreshSessionResponse
-	(*DeleteAllUserSessionsRequest)(nil),   // 12: auth.DeleteAllUserSessionsRequest
-	(*DeleteAllUserSessionsResponse)(nil),  // 13: auth.DeleteAllUserSessionsResponse
-	(*timestamppb.Timestamp)(nil),          // 14: google.protobuf.Timestamp
+	(*RefreshSession)(nil),                 // 0: auth.RefreshSession
+	(*CreateAccessSessionRequest)(nil),     // 1: auth.CreateAccessSessionRequest
+	(*CreateAccessSessionResponse)(nil),    // 2: auth.CreateAccessSessionResponse
+	(*ValidateAccessSessionRequest)(nil),   // 3: auth.ValidateAccessSessionRequest
+	(*ValidateAccessSessionResponse)(nil),  // 4: auth.ValidateAccessSessionResponse
+	(*DeleteAccessSessionRequest)(nil),     // 5: auth.DeleteAccessSessionRequest
+	(*DeleteAccessSessionResponse)(nil),    // 6: auth.DeleteAccessSessionResponse
+	(*ValidateRefreshSessionRequest)(nil),  // 7: auth.ValidateRefreshSessionRequest
+	(*ValidateRefreshSessionResponse)(nil), // 8: auth.ValidateRefreshSessionResponse
+	(*DeleteRefreshSessionRequest)(nil),    // 9: auth.DeleteRefreshSessionRequest
+	(*DeleteRefreshSessionResponse)(nil),   // 10: auth.DeleteRefreshSessionResponse
+	(*DeleteAllUserSessionsRequest)(nil),   // 11: auth.DeleteAllUserSessionsRequest
+	(*DeleteAllUserSessionsResponse)(nil),  // 12: auth.DeleteAllUserSessionsResponse
+	(*timestamppb.Timestamp)(nil),          // 13: google.protobuf.Timestamp
 }
 var file_auth_proto_depIdxs = []int32{
-	14, // 0: auth.AccessSession.created_at:type_name -> google.protobuf.Timestamp
-	14, // 1: auth.AccessSession.updated_at:type_name -> google.protobuf.Timestamp
-	14, // 2: auth.RefreshSession.created_at:type_name -> google.protobuf.Timestamp
-	0,  // 3: auth.ValidateAccessSessionResponse.access_session:type_name -> auth.AccessSession
-	0,  // 4: auth.DeleteAccessSessionResponse.access_session:type_name -> auth.AccessSession
-	1,  // 5: auth.ValidateRefreshSessionResponse.refresh_session:type_name -> auth.RefreshSession
-	1,  // 6: auth.DeleteRefreshSessionResponse.refresh_session:type_name -> auth.RefreshSession
-	2,  // 7: auth.AuthService.createAccessSession:input_type -> auth.CreateAccessSessionRequest
-	4,  // 8: auth.AuthService.validateAccessSession:input_type -> auth.ValidateAccessSessionRequest
-	2,  // 9: auth.AuthService.deleteAccessSession:input_type -> auth.CreateAccessSessionRequest
-	8,  // 10: auth.AuthService.validateRefreshSession:input_type -> auth.ValidateRefreshSessionRequest
-	10, // 11: auth.AuthService.deleteRefreshSession:input_type -> auth.DeleteRefreshSessionRequest
-	12, // 12: auth.AuthService.deleteAllUserSessions:input_type -> auth.DeleteAllUserSessionsRequest
-	3,  // 13: auth.AuthService.createAccessSession:output_type -> auth.CreateAccessSessionResponse
-	5,  // 14: auth.AuthService.validateAccessSession:output_type -> auth.ValidateAccessSessionResponse
-	7,  // 15: auth.AuthService.deleteAccessSession:output_type -> auth.DeleteAccessSessionResponse
-	9,  // 16: auth.AuthService.validateRefreshSession:output_type -> auth.ValidateRefreshSessionResponse
-	11, // 17: auth.AuthService.deleteRefreshSession:output_type -> auth.DeleteRefreshSessionResponse
-	13, // 18: auth.AuthService.deleteAllUserSessions:output_type -> auth.DeleteAllUserSessionsResponse
-	13, // [13:19] is the sub-list for method output_type
-	7,  // [7:13] is the sub-list for method input_type
-	7,  // [7:7] is the sub-list for extension type_name
-	7,  // [7:7] is the sub-list for extension extendee
-	0,  // [0:7] is the sub-list for field type_name
+	13, // 0: auth.RefreshSession.created_at:type_name -> google.protobuf.Timestamp
+	0,  // 1: auth.ValidateRefreshSessionResponse.refresh_session:type_name -> auth.RefreshSession
+	0,  // 2: auth.DeleteRefreshSessionResponse.refresh_session:type_name -> auth.RefreshSession
+	1,  // 3: auth.AuthService.createAccessSession:input_type -> auth.CreateAccessSessionRequest
+	3,  // 4: auth.AuthService.validateAccessSession:input_type -> auth.ValidateAccessSessionRequest
+	1,  // 5: auth.AuthService.deleteAccessSession:input_type -> auth.CreateAccessSessionRequest
+	7,  // 6: auth.AuthService.validateRefreshSession:input_type -> auth.ValidateRefreshSessionRequest
+	9,  // 7: auth.AuthService.deleteRefreshSession:input_type -> auth.DeleteRefreshSessionRequest
+	11, // 8: auth.AuthService.deleteAllUserSessions:input_type -> auth.DeleteAllUserSessionsRequest
+	2,  // 9: auth.AuthService.createAccessSession:output_type -> auth.CreateAccessSessionResponse
+	4,  // 10: auth.AuthService.validateAccessSession:output_type -> auth.ValidateAccessSessionResponse
+	6,  // 11: auth.AuthService.deleteAccessSession:output_type -> auth.DeleteAccessSessionResponse
+	8,  // 12: auth.AuthService.validateRefreshSession:output_type -> auth.ValidateRefreshSessionResponse
+	10, // 13: auth.AuthService.deleteRefreshSession:output_type -> auth.DeleteRefreshSessionResponse
+	12, // 14: auth.AuthService.deleteAllUserSessions:output_type -> auth.DeleteAllUserSessionsResponse
+	9,  // [9:15] is the sub-list for method output_type
+	3,  // [3:9] is the sub-list for method input_type
+	3,  // [3:3] is the sub-list for extension type_name
+	3,  // [3:3] is the sub-list for extension extendee
+	0,  // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_auth_proto_init() }
@@ -1013,18 +910,6 @@ func file_auth_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_auth_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AccessSession); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_auth_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*RefreshSession); i {
 			case 0:
 				return &v.state
@@ -1036,7 +921,7 @@ func file_auth_proto_init() {
 				return nil
 			}
 		}
-		file_auth_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_auth_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateAccessSessionRequest); i {
 			case 0:
 				return &v.state
@@ -1048,7 +933,7 @@ func file_auth_proto_init() {
 				return nil
 			}
 		}
-		file_auth_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_auth_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateAccessSessionResponse); i {
 			case 0:
 				return &v.state
@@ -1060,7 +945,7 @@ func file_auth_proto_init() {
 				return nil
 			}
 		}
-		file_auth_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_auth_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ValidateAccessSessionRequest); i {
 			case 0:
 				return &v.state
@@ -1072,7 +957,7 @@ func file_auth_proto_init() {
 				return nil
 			}
 		}
-		file_auth_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_auth_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ValidateAccessSessionResponse); i {
 			case 0:
 				return &v.state
@@ -1084,7 +969,7 @@ func file_auth_proto_init() {
 				return nil
 			}
 		}
-		file_auth_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_auth_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteAccessSessionRequest); i {
 			case 0:
 				return &v.state
@@ -1096,7 +981,7 @@ func file_auth_proto_init() {
 				return nil
 			}
 		}
-		file_auth_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_auth_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteAccessSessionResponse); i {
 			case 0:
 				return &v.state
@@ -1108,7 +993,7 @@ func file_auth_proto_init() {
 				return nil
 			}
 		}
-		file_auth_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_auth_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ValidateRefreshSessionRequest); i {
 			case 0:
 				return &v.state
@@ -1120,7 +1005,7 @@ func file_auth_proto_init() {
 				return nil
 			}
 		}
-		file_auth_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_auth_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ValidateRefreshSessionResponse); i {
 			case 0:
 				return &v.state
@@ -1132,7 +1017,7 @@ func file_auth_proto_init() {
 				return nil
 			}
 		}
-		file_auth_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_auth_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteRefreshSessionRequest); i {
 			case 0:
 				return &v.state
@@ -1144,7 +1029,7 @@ func file_auth_proto_init() {
 				return nil
 			}
 		}
-		file_auth_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+		file_auth_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteRefreshSessionResponse); i {
 			case 0:
 				return &v.state
@@ -1156,7 +1041,7 @@ func file_auth_proto_init() {
 				return nil
 			}
 		}
-		file_auth_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+		file_auth_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteAllUserSessionsRequest); i {
 			case 0:
 				return &v.state
@@ -1168,7 +1053,7 @@ func file_auth_proto_init() {
 				return nil
 			}
 		}
-		file_auth_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+		file_auth_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteAllUserSessionsResponse); i {
 			case 0:
 				return &v.state
@@ -1187,7 +1072,7 @@ func file_auth_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_auth_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   14,
+			NumMessages:   13,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
