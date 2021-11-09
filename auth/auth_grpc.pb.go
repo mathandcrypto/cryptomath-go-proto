@@ -7,6 +7,7 @@ import (
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -23,7 +24,7 @@ type AuthServiceClient interface {
 	DeleteAccessSession(ctx context.Context, in *CreateAccessSessionRequest, opts ...grpc.CallOption) (*DeleteAccessSessionResponse, error)
 	ValidateRefreshSession(ctx context.Context, in *ValidateRefreshSessionRequest, opts ...grpc.CallOption) (*ValidateRefreshSessionResponse, error)
 	DeleteRefreshSession(ctx context.Context, in *DeleteRefreshSessionRequest, opts ...grpc.CallOption) (*DeleteRefreshSessionResponse, error)
-	DeleteAllUserSessions(ctx context.Context, in *DeleteAllUserSessionsRequest, opts ...grpc.CallOption) (*DeleteAllUserSessionsResponse, error)
+	DeleteAllUserSessions(ctx context.Context, in *DeleteAllUserSessionsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 }
 
 type authServiceClient struct {
@@ -79,8 +80,8 @@ func (c *authServiceClient) DeleteRefreshSession(ctx context.Context, in *Delete
 	return out, nil
 }
 
-func (c *authServiceClient) DeleteAllUserSessions(ctx context.Context, in *DeleteAllUserSessionsRequest, opts ...grpc.CallOption) (*DeleteAllUserSessionsResponse, error) {
-	out := new(DeleteAllUserSessionsResponse)
+func (c *authServiceClient) DeleteAllUserSessions(ctx context.Context, in *DeleteAllUserSessionsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, "/auth.AuthService/deleteAllUserSessions", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -97,7 +98,7 @@ type AuthServiceServer interface {
 	DeleteAccessSession(context.Context, *CreateAccessSessionRequest) (*DeleteAccessSessionResponse, error)
 	ValidateRefreshSession(context.Context, *ValidateRefreshSessionRequest) (*ValidateRefreshSessionResponse, error)
 	DeleteRefreshSession(context.Context, *DeleteRefreshSessionRequest) (*DeleteRefreshSessionResponse, error)
-	DeleteAllUserSessions(context.Context, *DeleteAllUserSessionsRequest) (*DeleteAllUserSessionsResponse, error)
+	DeleteAllUserSessions(context.Context, *DeleteAllUserSessionsRequest) (*emptypb.Empty, error)
 	mustEmbedUnimplementedAuthServiceServer()
 }
 
@@ -120,7 +121,7 @@ func (UnimplementedAuthServiceServer) ValidateRefreshSession(context.Context, *V
 func (UnimplementedAuthServiceServer) DeleteRefreshSession(context.Context, *DeleteRefreshSessionRequest) (*DeleteRefreshSessionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteRefreshSession not implemented")
 }
-func (UnimplementedAuthServiceServer) DeleteAllUserSessions(context.Context, *DeleteAllUserSessionsRequest) (*DeleteAllUserSessionsResponse, error) {
+func (UnimplementedAuthServiceServer) DeleteAllUserSessions(context.Context, *DeleteAllUserSessionsRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteAllUserSessions not implemented")
 }
 func (UnimplementedAuthServiceServer) mustEmbedUnimplementedAuthServiceServer() {}
