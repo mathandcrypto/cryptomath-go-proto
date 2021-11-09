@@ -67,7 +67,7 @@ message DeleteAllUserSessionsRequest {
 service AuthService {
   rpc createAccessSession(CreateAccessSessionRequest) returns(CreateAccessSessionResponse);
   rpc validateAccessSession(ValidateAccessSessionRequest) returns (ValidateAccessSessionResponse);
-  rpc deleteAccessSession(CreateAccessSessionRequest) returns (DeleteAccessSessionResponse);
+  rpc deleteAccessSession(DeleteAccessSessionRequest) returns (DeleteAccessSessionResponse);
 
   rpc validateRefreshSession(ValidateRefreshSessionRequest) returns (ValidateRefreshSessionResponse);
   rpc deleteRefreshSession(DeleteRefreshSessionRequest) returns (DeleteRefreshSessionResponse);

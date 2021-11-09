@@ -21,7 +21,7 @@ const _ = grpc.SupportPackageIsVersion7
 type AuthServiceClient interface {
 	CreateAccessSession(ctx context.Context, in *CreateAccessSessionRequest, opts ...grpc.CallOption) (*CreateAccessSessionResponse, error)
 	ValidateAccessSession(ctx context.Context, in *ValidateAccessSessionRequest, opts ...grpc.CallOption) (*ValidateAccessSessionResponse, error)
-	DeleteAccessSession(ctx context.Context, in *CreateAccessSessionRequest, opts ...grpc.CallOption) (*DeleteAccessSessionResponse, error)
+	DeleteAccessSession(ctx context.Context, in *DeleteAccessSessionRequest, opts ...grpc.CallOption) (*DeleteAccessSessionResponse, error)
 	ValidateRefreshSession(ctx context.Context, in *ValidateRefreshSessionRequest, opts ...grpc.CallOption) (*ValidateRefreshSessionResponse, error)
 	DeleteRefreshSession(ctx context.Context, in *DeleteRefreshSessionRequest, opts ...grpc.CallOption) (*DeleteRefreshSessionResponse, error)
 	DeleteAllUserSessions(ctx context.Context, in *DeleteAllUserSessionsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -53,7 +53,7 @@ func (c *authServiceClient) ValidateAccessSession(ctx context.Context, in *Valid
 	return out, nil
 }
 
-func (c *authServiceClient) DeleteAccessSession(ctx context.Context, in *CreateAccessSessionRequest, opts ...grpc.CallOption) (*DeleteAccessSessionResponse, error) {
+func (c *authServiceClient) DeleteAccessSession(ctx context.Context, in *DeleteAccessSessionRequest, opts ...grpc.CallOption) (*DeleteAccessSessionResponse, error) {
 	out := new(DeleteAccessSessionResponse)
 	err := c.cc.Invoke(ctx, "/auth.AuthService/deleteAccessSession", in, out, opts...)
 	if err != nil {
@@ -95,7 +95,7 @@ func (c *authServiceClient) DeleteAllUserSessions(ctx context.Context, in *Delet
 type AuthServiceServer interface {
 	CreateAccessSession(context.Context, *CreateAccessSessionRequest) (*CreateAccessSessionResponse, error)
 	ValidateAccessSession(context.Context, *ValidateAccessSessionRequest) (*ValidateAccessSessionResponse, error)
-	DeleteAccessSession(context.Context, *CreateAccessSessionRequest) (*DeleteAccessSessionResponse, error)
+	DeleteAccessSession(context.Context, *DeleteAccessSessionRequest) (*DeleteAccessSessionResponse, error)
 	ValidateRefreshSession(context.Context, *ValidateRefreshSessionRequest) (*ValidateRefreshSessionResponse, error)
 	DeleteRefreshSession(context.Context, *DeleteRefreshSessionRequest) (*DeleteRefreshSessionResponse, error)
 	DeleteAllUserSessions(context.Context, *DeleteAllUserSessionsRequest) (*emptypb.Empty, error)
@@ -112,7 +112,7 @@ func (UnimplementedAuthServiceServer) CreateAccessSession(context.Context, *Crea
 func (UnimplementedAuthServiceServer) ValidateAccessSession(context.Context, *ValidateAccessSessionRequest) (*ValidateAccessSessionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ValidateAccessSession not implemented")
 }
-func (UnimplementedAuthServiceServer) DeleteAccessSession(context.Context, *CreateAccessSessionRequest) (*DeleteAccessSessionResponse, error) {
+func (UnimplementedAuthServiceServer) DeleteAccessSession(context.Context, *DeleteAccessSessionRequest) (*DeleteAccessSessionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteAccessSession not implemented")
 }
 func (UnimplementedAuthServiceServer) ValidateRefreshSession(context.Context, *ValidateRefreshSessionRequest) (*ValidateRefreshSessionResponse, error) {
@@ -174,7 +174,7 @@ func _AuthService_ValidateAccessSession_Handler(srv interface{}, ctx context.Con
 }
 
 func _AuthService_DeleteAccessSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateAccessSessionRequest)
+	in := new(DeleteAccessSessionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -186,7 +186,7 @@ func _AuthService_DeleteAccessSession_Handler(srv interface{}, ctx context.Conte
 		FullMethod: "/auth.AuthService/deleteAccessSession",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).DeleteAccessSession(ctx, req.(*CreateAccessSessionRequest))
+		return srv.(AuthServiceServer).DeleteAccessSession(ctx, req.(*DeleteAccessSessionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
