@@ -5,12 +5,11 @@ package auth;
 option go_package = "github.com/mathandcrypto/cryptomath-go-proto/auth;auth";
 
 import "google/protobuf/timestamp.proto";
-import "google/protobuf/empty.proto";
 
 message RefreshSession {
-  string ip = 2;
-  string user_agent = 3;
-  google.protobuf.Timestamp created_at = 4;
+  string ip = 1;
+  string user_agent = 2;
+  google.protobuf.Timestamp created_at = 3;
 }
 
 message CreateAccessSessionRequest {
@@ -20,8 +19,8 @@ message CreateAccessSessionRequest {
 }
 
 message CreateAccessSessionResponse {
-  string access_secret = 4;
-  string refresh_secret = 6;
+  string access_secret = 1;
+  string refresh_secret = 2;
 }
 
 message ValidateAccessSessionRequest {
@@ -64,6 +63,10 @@ message DeleteAllUserSessionsRequest {
   int32 user_id = 1;
 }
 
+message DeleteAllUserSessionsResponse {
+  int64 deleted_refresh_sessions_count = 1;
+}
+
 service AuthService {
   rpc createAccessSession(CreateAccessSessionRequest) returns(CreateAccessSessionResponse);
   rpc validateAccessSession(ValidateAccessSessionRequest) returns (ValidateAccessSessionResponse);
@@ -72,5 +75,5 @@ service AuthService {
   rpc validateRefreshSession(ValidateRefreshSessionRequest) returns (ValidateRefreshSessionResponse);
   rpc deleteRefreshSession(DeleteRefreshSessionRequest) returns (DeleteRefreshSessionResponse);
 
-  rpc deleteAllUserSessions(DeleteAllUserSessionsRequest) returns (google.protobuf.Empty);
+  rpc deleteAllUserSessions(DeleteAllUserSessionsRequest) returns (DeleteAllUserSessionsResponse);
 }

@@ -7,6 +7,7 @@ import (
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -18,7 +19,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CaptchaServiceClient interface {
-	GenerateTask(ctx context.Context, in *GenerateTaskRequest, opts ...grpc.CallOption) (*GenerateTaskResponse, error)
+	GenerateTask(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GenerateTaskResponse, error)
 	ValidateTask(ctx context.Context, in *ValidateTaskRequest, opts ...grpc.CallOption) (*ValidateTaskResponse, error)
 }
 
@@ -30,7 +31,7 @@ func NewCaptchaServiceClient(cc grpc.ClientConnInterface) CaptchaServiceClient {
 	return &captchaServiceClient{cc}
 }
 
-func (c *captchaServiceClient) GenerateTask(ctx context.Context, in *GenerateTaskRequest, opts ...grpc.CallOption) (*GenerateTaskResponse, error) {
+func (c *captchaServiceClient) GenerateTask(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GenerateTaskResponse, error) {
 	out := new(GenerateTaskResponse)
 	err := c.cc.Invoke(ctx, "/captcha.CaptchaService/generateTask", in, out, opts...)
 	if err != nil {
@@ -52,7 +53,7 @@ func (c *captchaServiceClient) ValidateTask(ctx context.Context, in *ValidateTas
 // All implementations must embed UnimplementedCaptchaServiceServer
 // for forward compatibility
 type CaptchaServiceServer interface {
-	GenerateTask(context.Context, *GenerateTaskRequest) (*GenerateTaskResponse, error)
+	GenerateTask(context.Context, *emptypb.Empty) (*GenerateTaskResponse, error)
 	ValidateTask(context.Context, *ValidateTaskRequest) (*ValidateTaskResponse, error)
 	mustEmbedUnimplementedCaptchaServiceServer()
 }
@@ -61,7 +62,7 @@ type CaptchaServiceServer interface {
 type UnimplementedCaptchaServiceServer struct {
 }
 
-func (UnimplementedCaptchaServiceServer) GenerateTask(context.Context, *GenerateTaskRequest) (*GenerateTaskResponse, error) {
+func (UnimplementedCaptchaServiceServer) GenerateTask(context.Context, *emptypb.Empty) (*GenerateTaskResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateTask not implemented")
 }
 func (UnimplementedCaptchaServiceServer) ValidateTask(context.Context, *ValidateTaskRequest) (*ValidateTaskResponse, error) {
@@ -81,7 +82,7 @@ func RegisterCaptchaServiceServer(s grpc.ServiceRegistrar, srv CaptchaServiceSer
 }
 
 func _CaptchaService_GenerateTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GenerateTaskRequest)
+	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -93,7 +94,7 @@ func _CaptchaService_GenerateTask_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: "/captcha.CaptchaService/generateTask",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CaptchaServiceServer).GenerateTask(ctx, req.(*GenerateTaskRequest))
+		return srv.(CaptchaServiceServer).GenerateTask(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
